@@ -16,5 +16,32 @@ namespace Foto_indelen
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine(Foto.GetDateTakenFromImage(@"C:\Foto\foto.jpg"));
+            //Indelen indelen = new Indelen();
+        }
+
+        private void ReadDirectory_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)
+        {
+
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            Console.WriteLine(e.Start + "\n" + e.End);
+            
+        }
     }
 }
