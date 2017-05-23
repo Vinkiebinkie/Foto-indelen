@@ -22,12 +22,14 @@ namespace Foto_indelen
         private void button1_Click(object sender, EventArgs e)
         {
             string[] temp;
-            temp = Fotos.HaalFotos("C:\\Foto");
+            int numLines = 0;
+            temp = Fotos.HaalFotos(@"C:\Foto");
             foreach(var item in temp)
             {
+                numLines++;
                 Console.WriteLine(item.ToString());
             }
-            //Console.WriteLine(Fotos.GetDateTakenFromImage(@"C:\Foto\foto.jpg"));
+            Console.Write(numLines);
         }
 
         private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)
