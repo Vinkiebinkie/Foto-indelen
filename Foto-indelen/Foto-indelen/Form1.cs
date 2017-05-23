@@ -12,6 +12,8 @@ namespace Foto_indelen
 {
     public partial class Form1 : Form
     {
+        Indelen indelen = new Indelen();
+
         public Form1()
         {
             InitializeComponent();
@@ -19,18 +21,13 @@ namespace Foto_indelen
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(Foto.GetDateTakenFromImage(@"C:\Foto\foto.jpg"));
-            //Indelen indelen = new Indelen();
-        }
-
-        private void ReadDirectory_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void progressBar1_Click(object sender, EventArgs e)
-        {
-
+            string[] temp;
+            temp = Fotos.HaalFotos("C:\\Foto");
+            foreach(var item in temp)
+            {
+                Console.WriteLine(item.ToString());
+            }
+            //Console.WriteLine(Fotos.GetDateTakenFromImage(@"C:\Foto\foto.jpg"));
         }
 
         private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)
@@ -40,8 +37,31 @@ namespace Foto_indelen
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-            Console.WriteLine(e.Start + "\n" + e.End);
-            
+            indelen.Vanaf = e.Start;
+            Console.WriteLine("Vanaf:" + indelen.Vanaf);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void monthCalendar1_DateChanged_1(object sender, DateRangeEventArgs e)
+        {
+            indelen.Tot = e.End;
+            Console.WriteLine("Tot:" + indelen.Tot);
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            indelen.LeesFolder = textBox1.Text; //ToString();
+            Console.WriteLine("Leesfolder:" + indelen.LeesFolder);
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            indelen.SchrijfFolder = textBox2.Text;
+            Console.WriteLine("Schrijffolder:" + indelen.SchrijfFolder);
         }
     }
 }

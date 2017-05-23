@@ -8,11 +8,17 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Text.RegularExpressions;
 
+
 namespace Foto_indelen
 {
-    public class Foto
+    public class Fotos
     {
         private static Regex r = new Regex(":");
+
+        public static string[] HaalFotos(string folder)
+        {
+            return Directory.GetFiles(folder);
+        }
 
         public int AantalFotos(string folder)
         {
