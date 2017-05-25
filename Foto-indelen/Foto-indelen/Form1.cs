@@ -21,7 +21,7 @@ namespace Foto_indelen
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string[] temp = Fotos.HaalFotos(@"C:\Foto");
+            string[] temp = Fotos.HaalFotos(indelen.LeesFolder);
             int aantal = Fotos.AantalFotos(temp);
             indelen.go(temp);
 
