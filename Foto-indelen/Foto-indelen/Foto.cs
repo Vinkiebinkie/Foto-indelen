@@ -13,18 +13,26 @@ namespace Foto_indelen
 {
     public class Fotos
     {
-        private static Regex r = new Regex(":");
+        
 
         public static string[] HaalFotos(string folder)
         {
             return Directory.GetFiles(folder);
         }
 
-        public int AantalFotos(string folder)
+        public static int AantalFotos(string[] bestanden)
         {
-            int Aantal=0;
-
-
+            int Aantal = 0;   
+            foreach (var item in bestanden)
+            {
+                
+                if (bestanden.Contains("IMG")) 
+                {
+                    Aantal++;
+                  //  Console.WriteLine(item.ToString());
+                }
+                
+            }
             return Aantal;
         }
 
@@ -33,16 +41,7 @@ namespace Foto_indelen
             return new DateTime(2000, 1, 1, 1, 1, 1);
         }
 
-        public static DateTime GetDateTakenFromImage(string path)
-        {
-            using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
-            using (Image myImage = Image.FromStream(fs, false, false))
-            {
-                PropertyItem propItem = myImage.GetPropertyItem(36867);
-                string dateTaken = r.Replace(Encoding.UTF8.GetString(propItem.Value), "-", 2);
-                return DateTime.Parse(dateTaken);
-            }
-        }
+
 
     }
 }

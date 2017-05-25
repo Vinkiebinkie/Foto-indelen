@@ -21,15 +21,20 @@ namespace Foto_indelen
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string[] temp;
-            int numLines = 0;
-            temp = Fotos.HaalFotos(@"C:\Foto");
-            foreach(var item in temp)
-            {
-                numLines++;
-                Console.WriteLine(item.ToString());
-            }
-            Console.Write(numLines);
+            string[] temp = Fotos.HaalFotos(@"C:\Foto");
+            int aantal = Fotos.AantalFotos(temp);
+            indelen.go(temp);
+
+            Console.Write(aantal);
+            //string[] temp;
+            //int numLines = 0;
+            //temp = Fotos.HaalFotos(@"C:\Foto");
+            //foreach(var item in temp)
+            //{
+            //    numLines++;
+            //    Console.WriteLine(item.ToString());
+            //}
+            //Console.Write(numLines);
         }
 
         private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)
@@ -65,5 +70,25 @@ namespace Foto_indelen
             indelen.SchrijfFolder = textBox2.Text;
             Console.WriteLine("Schrijffolder:" + indelen.SchrijfFolder);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult result = folderBrowserDialog1.ShowDialog();
+            if (result==DialogResult.OK)
+            {
+                textBox1.Text = folderBrowserDialog1.SelectedPath;
+            }
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DialogResult result = folderBrowserDialog2.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                textBox2.Text = folderBrowserDialog2.SelectedPath;
+            }
+        }
+
     }
 }
