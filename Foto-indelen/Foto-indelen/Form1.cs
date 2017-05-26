@@ -90,5 +90,14 @@ namespace Foto_indelen
             }
         }
 
+        private void jpgCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            indelen.jpg = jpgCheckBox.Checked;
+        }
+
+        private void mp4CheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            indelen.mp4 = mp4CheckBox.Checked;
+        }
     }
 }

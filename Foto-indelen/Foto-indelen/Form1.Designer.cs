@@ -41,11 +41,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.folderBrowserDialog2 = new System.Windows.Forms.FolderBrowserDialog();
+            this.jpgCheckBox = new System.Windows.Forms.CheckBox();
+            this.mp4CheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(243, 487);
+            this.button1.Location = new System.Drawing.Point(332, 500);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(120, 53);
             this.button1.TabIndex = 0;
@@ -73,7 +75,7 @@
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(396, 210);
+            this.monthCalendar1.Location = new System.Drawing.Point(279, 210);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 6;
             this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged_1);
@@ -82,7 +84,7 @@
             // 
             this.Tot.AutoSize = true;
             this.Tot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.Tot.Location = new System.Drawing.Point(445, 180);
+            this.Tot.Location = new System.Drawing.Point(328, 180);
             this.Tot.Name = "Tot";
             this.Tot.Size = new System.Drawing.Size(128, 29);
             this.Tot.TabIndex = 7;
@@ -98,7 +100,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(396, 87);
+            this.textBox2.Location = new System.Drawing.Point(279, 87);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(193, 26);
             this.textBox2.TabIndex = 9;
@@ -116,7 +118,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(587, 87);
+            this.button3.Location = new System.Drawing.Point(470, 87);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(36, 26);
             this.button3.TabIndex = 11;
@@ -140,7 +142,7 @@
             this.label2.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label2.Location = new System.Drawing.Point(438, 40);
+            this.label2.Location = new System.Drawing.Point(321, 40);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(142, 29);
             this.label2.TabIndex = 13;
@@ -155,12 +157,36 @@
             // 
             this.folderBrowserDialog2.RootFolder = System.Environment.SpecialFolder.MyComputer;
             // 
+            // jpgCheckBox
+            // 
+            this.jpgCheckBox.AutoSize = true;
+            this.jpgCheckBox.Location = new System.Drawing.Point(75, 493);
+            this.jpgCheckBox.Name = "jpgCheckBox";
+            this.jpgCheckBox.Size = new System.Drawing.Size(60, 24);
+            this.jpgCheckBox.TabIndex = 14;
+            this.jpgCheckBox.Text = ".jpg";
+            this.jpgCheckBox.UseVisualStyleBackColor = true;
+            this.jpgCheckBox.CheckedChanged += new System.EventHandler(this.jpgCheckBox_CheckedChanged);
+            // 
+            // mp4CheckBox
+            // 
+            this.mp4CheckBox.AutoSize = true;
+            this.mp4CheckBox.Location = new System.Drawing.Point(75, 529);
+            this.mp4CheckBox.Name = "mp4CheckBox";
+            this.mp4CheckBox.Size = new System.Drawing.Size(70, 24);
+            this.mp4CheckBox.TabIndex = 15;
+            this.mp4CheckBox.Text = ".mp4";
+            this.mp4CheckBox.UseVisualStyleBackColor = true;
+            this.mp4CheckBox.CheckedChanged += new System.EventHandler(this.mp4CheckBox_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(650, 577);
+            this.ClientSize = new System.Drawing.Size(524, 577);
+            this.Controls.Add(this.mp4CheckBox);
+            this.Controls.Add(this.jpgCheckBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
@@ -197,6 +223,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog2;
+        private System.Windows.Forms.CheckBox jpgCheckBox;
+        private System.Windows.Forms.CheckBox mp4CheckBox;
     }
 }
 

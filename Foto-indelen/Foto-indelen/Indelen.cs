@@ -18,48 +18,77 @@ namespace Foto_indelen
         private static Regex r = new Regex(":");
         public string LeesFolder;    //Folder waarvan gelezen wordt
         public string SchrijfFolder; //Folder waarnaar geschreven wordt
-        private string LeesBestand;
+        private string LeesBestand; //bestand wat verwerkt wordt
         public DateTime Vanaf;  //datum vanaf
         public DateTime Tot;    //Datum tot
+        public bool jpg, mp4;
         public bool go (string[] bestanden)   //indelen van de foto's
         {
             foreach (var item in bestanden)
             {
 
                 haalLeesBestand(item.ToString());
-                string extension = Path.GetExtension(LeesBestand);
-                if (extension == ".jpg")
+                string extension = Path.GetExtension(LeesBestand); //Extensie van het bestand ophalen
+                if (extension == ".jpg" && jpg)
                 {
                     string SchrijfBestand = SchrijfFolder.ToString() + LeesBestand;
                     CheckFoto((LeesFolder + LeesBestand), SchrijfBestand);
+                }
+                else if (extension == ".mp4" && mp4)
+                {
+                    string SchrijfBestand = SchrijfFolder.ToString() + LeesBestand;
+                    CheckVideo((LeesFolder + LeesBestand), SchrijfBestand);
                 }
 
             }
             return true;
         }
 
-        public void CheckFoto (string LeesBestand, string SchrijfBestand)
+        public void CheckFoto (string LeesBestand, string SchrijfBestand) //kijken of datum tijd van foto in range valt en indien nodig kopieeren
         {
             DateTime DateTaken = (GetDateTakenFromImage(LeesBestand));
             if ((DateTaken > Vanaf) && (DateTaken < Tot))
             {
-                System.IO.File.Copy(LeesBestand, SchrijfBestand);
+                System.IO.File.Copy(LeesBestand, SchrijfBestand, true);
             }
         }
 
-
-        public static DateTime GetDateTakenFromImage(string path)
+        public void CheckVideo (string LeesBestand, string SchrijfBestand)
+        {
+            DateTime DateTaken = (GetDateCreatedFromFile(LeesBestand));
+            if ((DateTaken> Vanaf ) && (DateTaken < Tot))
+            {
+                System.IO.File.Copy(LeesBestand, SchrijfBestand);
+            }
+        }
+        
+        public static DateTime GetDateTakenFromImage(string path) //datum en tijd van foto ophalen
         {
             using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
             using (Image myImage = Image.FromStream(fs, false, false))
             {
-                PropertyItem propItem = myImage.GetPropertyItem(36867);
-                string dateTaken = r.Replace(Encoding.UTF8.GetString(propItem.Value), "-", 2);
-                return DateTime.Parse(dateTaken);
+                try
+                {
+                    PropertyItem propItem = myImage.GetPropertyItem(36867);
+                    string dateTaken = r.Replace(Encoding.UTF8.GetString(propItem.Value), "-", 2);
+                    
+                    return DateTime.Parse(dateTaken);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("{0} : {1}", e.GetType().Name, e.Message);
+                    return new DateTime(1, 1, 1);
+                }
+
             }
         }
 
-        private void haalLeesBestand (string Bestand)
+        public static DateTime GetDateCreatedFromFile(string path)
+        {
+            return System.IO.File.GetLastWriteTime(path);
+        }
+
+        private void haalLeesBestand (string Bestand)   //lees bestand scheiden van leespath
         {
             int index, length;
 
