@@ -43,11 +43,12 @@
             this.folderBrowserDialog2 = new System.Windows.Forms.FolderBrowserDialog();
             this.jpgCheckBox = new System.Windows.Forms.CheckBox();
             this.mp4CheckBox = new System.Windows.Forms.CheckBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(332, 500);
+            this.button1.Location = new System.Drawing.Point(200, 504);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(120, 53);
             this.button1.TabIndex = 0;
@@ -57,7 +58,7 @@
             // 
             // monthCalendarVanaf
             // 
-            this.monthCalendarVanaf.Location = new System.Drawing.Point(18, 210);
+            this.monthCalendarVanaf.Location = new System.Drawing.Point(18, 198);
             this.monthCalendarVanaf.Name = "monthCalendarVanaf";
             this.monthCalendarVanaf.TabIndex = 4;
             this.monthCalendarVanaf.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
@@ -66,7 +67,7 @@
             // 
             this.Vanaf.AutoSize = true;
             this.Vanaf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.Vanaf.Location = new System.Drawing.Point(95, 180);
+            this.Vanaf.Location = new System.Drawing.Point(95, 168);
             this.Vanaf.Name = "Vanaf";
             this.Vanaf.Size = new System.Drawing.Size(73, 29);
             this.Vanaf.TabIndex = 5;
@@ -75,7 +76,7 @@
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(279, 210);
+            this.monthCalendar1.Location = new System.Drawing.Point(279, 198);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 6;
             this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged_1);
@@ -84,7 +85,7 @@
             // 
             this.Tot.AutoSize = true;
             this.Tot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.Tot.Location = new System.Drawing.Point(328, 180);
+            this.Tot.Location = new System.Drawing.Point(328, 168);
             this.Tot.Name = "Tot";
             this.Tot.Size = new System.Drawing.Size(128, 29);
             this.Tot.TabIndex = 7;
@@ -92,23 +93,23 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(18, 87);
+            this.textBox1.Location = new System.Drawing.Point(168, 30);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(194, 26);
+            this.textBox1.Size = new System.Drawing.Size(338, 26);
             this.textBox1.TabIndex = 8;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(279, 87);
+            this.textBox2.Location = new System.Drawing.Point(168, 65);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(193, 26);
+            this.textBox2.Size = new System.Drawing.Size(338, 26);
             this.textBox2.TabIndex = 9;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(209, 87);
+            this.button2.Location = new System.Drawing.Point(470, 30);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(36, 26);
             this.button2.TabIndex = 10;
@@ -118,7 +119,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(470, 87);
+            this.button3.Location = new System.Drawing.Point(470, 65);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(36, 26);
             this.button3.TabIndex = 11;
@@ -131,7 +132,7 @@
             this.label1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(67, 40);
+            this.label1.Location = new System.Drawing.Point(13, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(128, 29);
             this.label1.TabIndex = 12;
@@ -142,7 +143,7 @@
             this.label2.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label2.Location = new System.Drawing.Point(321, 40);
+            this.label2.Location = new System.Drawing.Point(13, 61);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(142, 29);
             this.label2.TabIndex = 13;
@@ -160,7 +161,9 @@
             // jpgCheckBox
             // 
             this.jpgCheckBox.AutoSize = true;
-            this.jpgCheckBox.Location = new System.Drawing.Point(75, 493);
+            this.jpgCheckBox.Checked = true;
+            this.jpgCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.jpgCheckBox.Location = new System.Drawing.Point(183, 121);
             this.jpgCheckBox.Name = "jpgCheckBox";
             this.jpgCheckBox.Size = new System.Drawing.Size(60, 24);
             this.jpgCheckBox.TabIndex = 14;
@@ -171,7 +174,9 @@
             // mp4CheckBox
             // 
             this.mp4CheckBox.AutoSize = true;
-            this.mp4CheckBox.Location = new System.Drawing.Point(75, 529);
+            this.mp4CheckBox.Checked = true;
+            this.mp4CheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.mp4CheckBox.Location = new System.Drawing.Point(276, 121);
             this.mp4CheckBox.Name = "mp4CheckBox";
             this.mp4CheckBox.Size = new System.Drawing.Size(70, 24);
             this.mp4CheckBox.TabIndex = 15;
@@ -179,12 +184,20 @@
             this.mp4CheckBox.UseVisualStyleBackColor = true;
             this.mp4CheckBox.CheckedChanged += new System.EventHandler(this.mp4CheckBox_CheckedChanged);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(18, 456);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(488, 33);
+            this.progressBar1.TabIndex = 16;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(524, 577);
+            this.ClientSize = new System.Drawing.Size(524, 571);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.mp4CheckBox);
             this.Controls.Add(this.jpgCheckBox);
             this.Controls.Add(this.label2);
@@ -225,6 +238,7 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog2;
         private System.Windows.Forms.CheckBox jpgCheckBox;
         private System.Windows.Forms.CheckBox mp4CheckBox;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

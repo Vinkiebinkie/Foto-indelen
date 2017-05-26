@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
 namespace Foto_indelen
@@ -22,8 +23,9 @@ namespace Foto_indelen
         public DateTime Vanaf;  //datum vanaf
         public DateTime Tot;    //Datum tot
         public bool jpg, mp4;
-        public bool go (string[] bestanden)   //indelen van de foto's
+        public bool go (string[] bestanden, ProgressBar progressbar)   //indelen van de foto's
         {
+            progressbar.Maximum = bestanden.Length;
             foreach (var item in bestanden)
             {
 
@@ -39,14 +41,15 @@ namespace Foto_indelen
                     string SchrijfBestand = SchrijfFolder.ToString() + LeesBestand;
                     CheckVideo((LeesFolder + LeesBestand), SchrijfBestand);
                 }
-
+                progressbar.Value++;
             }
+            progressbar.Value = 0;
             return true;
         }
 
         public void CheckFoto (string LeesBestand, string SchrijfBestand) //kijken of datum tijd van foto in range valt en indien nodig kopieeren
         {
-            DateTime DateTaken = (GetDateTakenFromImage(LeesBestand));
+            DateTime DateTaken = (GetDateCreatedFromFile(LeesBestand));
             if ((DateTaken > Vanaf) && (DateTaken < Tot))
             {
                 System.IO.File.Copy(LeesBestand, SchrijfBestand, true);
@@ -58,7 +61,7 @@ namespace Foto_indelen
             DateTime DateTaken = (GetDateCreatedFromFile(LeesBestand));
             if ((DateTaken> Vanaf ) && (DateTaken < Tot))
             {
-                System.IO.File.Copy(LeesBestand, SchrijfBestand);
+                System.IO.File.Copy(LeesBestand, SchrijfBestand,true);
             }
         }
         

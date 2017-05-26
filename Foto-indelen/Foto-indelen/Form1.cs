@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Foto_indelen
 {
@@ -21,11 +22,13 @@ namespace Foto_indelen
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string[] temp = Fotos.HaalFotos(indelen.LeesFolder);
-            int aantal = Fotos.AantalFotos(temp);
-            indelen.go(temp);
-
-            Console.Write(aantal);
+            //string[] temp = Fotos.HaalFotos(indelen.LeesFolder);
+            //int aantal = Fotos.AantalFotos(temp);
+            indelen.jpg = jpgCheckBox.Checked;
+            indelen.mp4 = mp4CheckBox.Checked;
+            //Thread thread = new Thread(new ThreadStart(go));
+            //thread.Start();
+            indelen.go(Fotos.HaalFotos(indelen.LeesFolder), progressBar1);
             //string[] temp;
             //int numLines = 0;
             //temp = Fotos.HaalFotos(@"C:\Foto");
@@ -36,6 +39,12 @@ namespace Foto_indelen
             //}
             //Console.Write(numLines);
         }
+
+        private void go ()
+        {
+            indelen.go(Fotos.HaalFotos(indelen.LeesFolder), progressBar1);
+        }
+
 
         private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)
         {
